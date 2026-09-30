@@ -21,9 +21,17 @@ resource_autoplace.initialize_patch_set("lymph-brine", false, "carnova")
 data:extend({
 	{
 		type = "autoplace-control",
+		name = "apia_soil",
+		order = "z-[apia]-a",
+		category = "terrain",
+		richness = false,
+		can_be_disabled = false,
+	},
+	{
+		type = "autoplace-control",
 		name = "carnova_enemy_base",
 		richness = false,
-		order = "z",
+		order = "z-[carnova]-a",
 		category = "enemy",
 		can_be_disabled = false,
 		related_to_fight_achievements = true
@@ -33,7 +41,7 @@ data:extend({
 		name = "bones",
 		localised_name = {"", "[entity=bones] ", {"entity-name.bones"}},
 		richness = true,
-		order = "z-a",
+		order = "z-[carnova]-b",
 		category = "resource"
 	},
 	{
@@ -93,7 +101,7 @@ data:extend({
 		name = "lymph",
 		localised_name = {"", "[entity=lymph-brine] ", {"entity-name.lymph-brine"}},
 		richness = true,
-		order = "z-b",
+		order = "z-[carnova]-c",
 		category = "resource"
 	},
 	{

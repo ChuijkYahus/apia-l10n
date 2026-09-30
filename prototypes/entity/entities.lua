@@ -51,8 +51,9 @@ data:extend(
     create_ghost_on_death = false,
 	corpse = "artificial-hive-remnants",
     max_health = 250,
-    show_recipe_icon = false,
+    show_recipe_icon = true,
     impact_category = "organic",
+	allowed_effects = {"speed", "consumption", "pollution"},
     production_health_effect =
     {
       not_producing = -1 / 120, -- 2.5 hp per second
@@ -60,7 +61,8 @@ data:extend(
     },
     ignore_output_full = true,
     alert_icon_shift = util.by_pixel(0, -12),
-    icon_draw_specification = {shift = {0, -0.3}},
+    --icon_draw_specification = {shift = {0, -0.3}},
+	icon_draw_specification = {scale = 1.5, shift = {0, -0.3}},
     resistances =
     {
       {
@@ -71,17 +73,23 @@ data:extend(
     surface_conditions = apia_utils.surface_conditions("apia"),
     fast_replaceable_group = "artificial-hive",
     graphics_set =
-    {
-      animation = {
-        layers = {
-          util.sprite_load("__apia__/graphics/entity/artificial-hive/artificial-hive-anim",{
-            frame_count = 1,
-            scale = 0.25,
-            animation_speed = 1,
-          }),
-        }
-      },
-    },
+	{
+	  animation =
+	  {
+		layers =
+		{
+		  {
+			filename = "__apia__/graphics/entity/artificial-hive/artificial-hive-anim.png",
+			width = 600,
+			height = 600,
+			shift = util.by_pixel(0, -10),
+			frame_count = 1,
+			scale = 0.5,
+			animation_speed = 1,
+		  },
+		}
+	  },
+	},
 	stateless_visualisation =
 	{
 	  {
@@ -114,8 +122,22 @@ data:extend(
         {sound = {variations = sound_variations("__space-age__/sound/entity/spawner/spawner-respirator-pull", 3, 0.3), audible_distance_modifier = 0.6}, frame = 17},
       },
     },
+	tile_buildability_rules =
+	{
+		{
+			area = {{-1.7, -1.7}, {1.7, 1.7}},
+			required_tiles =
+			{
+				layers =
+				{
+					apia_hive_ground = true,
+				}
+			},
+			remove_on_collision = true,
+		},
+	},
     crafting_categories = {"artificial-hive-process"},
-    fixed_recipe = "honeycombs",
+    --fixed_recipe = "honeycombs",
     crafting_speed = 1,
     energy_source =
     {
@@ -209,6 +231,7 @@ data:extend(
     selection_box = {{-2.5, -2.5}, {2.5, 2.5}},
     damaged_trigger_effect = hit_effects.entity(),
     module_slots = 6,
+	use_mirroring = true,
 	drawing_box_vertical_extension = 0.4,
     icons_positioning =
     {

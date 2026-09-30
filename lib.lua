@@ -38,7 +38,9 @@ function apia_utils.generate_refresh_recipe(item)
 		return
 	end
 	
-	if (item.spoil_result ~= "spoilage" and item.spoil_to_trigger_result == nil) then 
+	local forced = item.apia_force_refresh_recipe
+
+	if not forced and (item.spoil_result ~= "spoilage" and item.spoil_to_trigger_result == nil) then
 		return
 	end
 	

@@ -49,10 +49,10 @@ data:extend
     ingredients = {{type = "item", name = "fossil-larvae", amount = 1}},
     results =
     {
-		{type = "item", name = "stone", amount = 1, independent_probability = 0.33},
-		{type = "item", name = "iron-ore", amount = 1, independent_probability = 0.15},
-		{type = "item", name = "copper-ore", amount = 1, independent_probability = 0.10},
-		{type = "item", name = "phosphorus", amount = 1, independent_probability = 0.02},
+		{type = "item", name = "stone", amount = 1, independent_probability = 0.5},
+		--{type = "item", name = "iron-ore", amount = 1, independent_probability = 0.15},
+		--{type = "item", name = "copper-ore", amount = 1, independent_probability = 0.10},
+		{type = "item", name = "phosphorus", amount = 1, independent_probability = 0.1},
     },
   },
   {
@@ -211,7 +211,7 @@ data:extend
 		"crafting",
 	},
     subgroup = "apiculture-processes",
-    order = "a-c-b[honeycombs]",
+    order = "a-c-a[honeycombs]-b",
 	auto_recycle = false,
     enabled = false,
     allow_productivity = true,
@@ -221,6 +221,50 @@ data:extend
     {
 		{type = "item", name = "wax", amount = 2},
 		{type = "item", name = "honey", amount = 1},
+    },
+  },
+  {
+    type = "recipe",
+    name = "honeycombs-iron-processing",
+    icon = "__apia__/graphics/icons/honeycombs-iron-processing.png",
+	categories =
+	{
+		"apicultural",
+		"crafting",
+	},
+    subgroup = "apiculture-processes",
+    order = "a-c-b[honeycombs]-b",
+	auto_recycle = false,
+    enabled = false,
+    allow_productivity = true,
+    energy_required = 3,
+    ingredients = {{type = "item", name = "honeycombs-iron", amount = 1}},
+    results =
+    {
+		{type = "item", name = "wax", amount = 2},
+		{type = "item", name = "iron-ore", amount = 1},
+    },
+  },
+  {
+    type = "recipe",
+    name = "honeycombs-copper-processing",
+    icon = "__apia__/graphics/icons/honeycombs-copper-processing.png",
+	categories =
+	{
+		"apicultural",
+		"crafting",
+	},
+    subgroup = "apiculture-processes",
+    order = "a-c-c[honeycombs]-b",
+	auto_recycle = false,
+    enabled = false,
+    allow_productivity = true,
+    energy_required = 3,
+    ingredients = {{type = "item", name = "honeycombs-copper", amount = 1}},
+    results =
+    {
+		{type = "item", name = "wax", amount = 2},
+		{type = "item", name = "copper-ore", amount = 1},
     },
   },
   {
@@ -343,13 +387,76 @@ data:extend
   },
   {
     type = "recipe",
+    name = "artificial-honey-soil",
+    always_show_made_in = true,
+	categories =
+	{
+		"crafting-with-fluid",
+	},
+	surface_conditions = apia_utils.surface_conditions("apia"),
+    energy_required = 2,
+	allow_productivity = true,
+    ingredients =
+    {
+		{type = "item", name = "raw-larvae", amount = 10},
+		{type = "item", name = "nutrients", amount = 50},
+		{type = "item", name = "landfill", amount = 5},
+		{type="fluid", name="water", amount = 100}
+    },
+    results = {{type="item", name="artificial-honey-soil", amount=10}},
+    enabled = false
+  },
+  {
+    type = "recipe",
+    name = "artificial-copper-soil",
+    always_show_made_in = true,
+	categories =
+	{
+		"crafting-with-fluid",
+	},
+	surface_conditions = apia_utils.surface_conditions("apia"),
+    energy_required = 2,
+	allow_productivity = true,
+    ingredients =
+    {
+		{type = "item", name = "copper-bacteria", amount = 1},
+		{type = "item", name = "nutrients", amount = 50},
+		{type = "item", name = "landfill", amount = 5},
+		{type="fluid", name="water", amount = 100}
+    },
+    results = {{type="item", name="artificial-copper-soil", amount=10}},
+    enabled = false
+  },
+  {
+    type = "recipe",
+    name = "artificial-iron-soil",
+    always_show_made_in = true,
+	categories =
+	{
+		"crafting-with-fluid",
+	},
+	surface_conditions = apia_utils.surface_conditions("apia"),
+    energy_required = 2,
+	allow_productivity = true,
+    ingredients =
+    {
+		{type = "item", name = "iron-bacteria", amount = 1},
+		{type = "item", name = "nutrients", amount = 50},
+		{type = "item", name = "landfill", amount = 5},
+		{type="fluid", name="water", amount = 100}
+    },
+    results = {{type="item", name="artificial-iron-soil", amount=10}},
+    enabled = false
+  },
+  {
+    type = "recipe",
     name = "honeycombs",
     icon = "__apia__/graphics/icons/honeycombs.png",
 	categories =
 	{
 		"artificial-hive-process",
 	},
-    order = "c-a[honeycombs]",
+    order = "c-a[honeycombs]-a",
     hide_from_player_crafting = true,
     auto_recycle = false,
     preserve_products_in_machine_output = true,
@@ -360,7 +467,49 @@ data:extend
     {
 		{type = "item", name = "honeycombs", amount = 10}
     },
-    enabled = false
+    enabled = true
+  },
+  {
+    type = "recipe",
+    name = "honeycombs-iron",
+    icon = "__apia__/graphics/icons/honeycombs-iron.png",
+	categories =
+	{
+		"artificial-hive-process",
+	},
+    order = "c-a[honeycombs]-b",
+    hide_from_player_crafting = true,
+    auto_recycle = false,
+    preserve_products_in_machine_output = true,
+	surface_conditions = apia_utils.surface_conditions("apia"),
+    energy_required = 10,
+    ingredients = {},
+    results =
+    {
+		{type = "item", name = "honeycombs-iron", amount = 10}
+    },
+    enabled = true
+  },
+  {
+    type = "recipe",
+    name = "honeycombs-copper",
+    icon = "__apia__/graphics/icons/honeycombs-copper.png",
+	categories =
+	{
+		"artificial-hive-process",
+	},
+    order = "c-a[honeycombs]-c",
+    hide_from_player_crafting = true,
+    auto_recycle = false,
+    preserve_products_in_machine_output = true,
+	surface_conditions = apia_utils.surface_conditions("apia"),
+    energy_required = 10,
+    ingredients = {},
+    results =
+    {
+		{type = "item", name = "honeycombs-copper", amount = 10}
+    },
+    enabled = true
   },
   {
     type = "recipe",
@@ -916,57 +1065,6 @@ data:extend
     results =
 	{
 		{type = "item", name = "plastic-bar", amount = 6},
-    },
-  },
-  {
-    type = "recipe",
-    name = "carbon-fiber-apia",
-    icon = "__apia__/graphics/icons/carbon-fiber-apia.png",
-	categories =
-	{
-		"apicultural",
-	},
-    subgroup = "apiculture-products",
-	order = "b-e-a[carbon-fiber]",
-	surface_conditions = apia_utils.surface_conditions("apia"),
-    enabled = false,
-    allow_productivity = true,
-	auto_recycle = false,
-    energy_required = 5,
-	ingredients =
-	{
-		{type = "item", name = "polysaccharides", amount = 2},
-		{type = "item", name = "wax", amount = 3},
-		{type = "item", name = "carbon", amount = 1},
-    },
-    results =
-	{
-		{type = "item", name = "carbon-fiber", amount = 1},
-    },
-  },
-  {
-    type = "recipe",
-    name = "carbon-fiber-carnova",
-    icon = "__apia__/graphics/icons/carbon-fiber-carnova.png",
-	categories =
-	{
-		"apicultural",
-	},
-    subgroup = "sarciculture-products",
-	order = "a-f-g[carbon-fiber]",
-	surface_conditions = apia_utils.surface_conditions("carnova"),
-    enabled = false,
-    allow_productivity = true,
-	auto_recycle = false,
-    energy_required = 5,
-	ingredients =
-	{
-		{type = "item", name = "lipids", amount = 6},
-		{type = "item", name = "carbon", amount = 1},
-    },
-    results =
-	{
-		{type = "item", name = "carbon-fiber", amount = 1},
     },
   },
   {

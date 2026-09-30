@@ -142,6 +142,7 @@ carnova_lake1.vehicle_friction_modifier = 4
 carnova_lake1.walking_sound = tile_sounds.walking.oil_deep
 carnova_lake1.landing_steps_sound = tile_sounds.landing.oil
 carnova_lake1.driving_sound = base_tile_sounds.driving.oil
+carnova_lake1.factoriopedia_alternative = nil
 
 
 local carnova_lake2 = table.deepcopy(data.raw.tile["wetland-jellynut"])
@@ -159,6 +160,7 @@ carnova_lake2.vehicle_friction_modifier = 10
 carnova_lake2.walking_sound = tile_sounds.walking.oil_deep
 carnova_lake2.landing_steps_sound = tile_sounds.landing.oil
 carnova_lake2.driving_sound = base_tile_sounds.driving.oil
+carnova_lake2.factoriopedia_alternative = nil
 
 
 table.insert(water_tile_type_names, "blood-lake1")
@@ -171,6 +173,7 @@ carnova_biome2.order = "a[carnova][carnova-biome2]"
 carnova_biome2.subgroup = "carnova-tiles"
 carnova_biome2.autoplace = {probability_expression = "carnova_biome2"}
 carnova_biome2.map_color={ 110, 51, 42 }
+carnova_biome2.factoriopedia_alternative = nil
 
 local carnova_biome3 = table.deepcopy(data.raw.tile["lowland-red-vein-4"])
 carnova_biome3.name = "carnova-biome3"
@@ -178,6 +181,7 @@ carnova_biome3.order = "a[carnova][carnova-biome3]"
 carnova_biome3.subgroup = "carnova-tiles"
 carnova_biome3.autoplace = {probability_expression = "carnova_biome3"}
 carnova_biome3.map_color={ 104, 48, 36 }
+carnova_biome3.factoriopedia_alternative = nil
 
 local carnova_biome4 = table.deepcopy(data.raw.tile["lowland-red-vein-3"])
 carnova_biome4.name = "carnova-biome4"
@@ -185,6 +189,7 @@ carnova_biome4.order = "a[carnova][carnova-biome4]"
 carnova_biome4.subgroup = "carnova-tiles"
 carnova_biome4.autoplace = {probability_expression = "carnova_biome4"}
 carnova_biome4.map_color={ 104, 54, 48 }
+carnova_biome4.factoriopedia_alternative = nil
 
 
 
@@ -212,7 +217,8 @@ data:extend({
 		absorptions_per_second = tile_pollution.ice,
 		walking_speed_modifier = 1,
         vehicle_friction_modifier = 1,
-        trigger_effect = tile_trigger_effects.dirt_2_trigger_effect()
+        trigger_effect = tile_trigger_effects.dirt_2_trigger_effect(),
+		factoriopedia_alternative = nil
 	},
 	
 	carnova_lake1,

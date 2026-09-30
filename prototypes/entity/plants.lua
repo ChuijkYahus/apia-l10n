@@ -14,6 +14,7 @@ data:extend(
 		icon = "__apia__/graphics/entity/wild-hive/wild-hive_icon.png",
 		icon_size = 256,
 		flags = {"placeable-neutral", "placeable-off-grid"},
+		map_color = {171, 132, 87},
 		autoplace =
 		{
 		  probability_expression = "apia_biome2 * 0.000005",
@@ -26,8 +27,10 @@ data:extend(
 		  mining_time = 1,
 		  results =
 		  {
-			{type = "item", name = "honeycombs", amount = 40},
-			{type = "item", name = "spoilage", amount = 20},
+			{type = "item", name = "honeycombs", amount = 50, shared_probability = { min = 0, max = 0.5 }},
+			{type = "item", name = "honeycombs-iron", amount = 50, shared_probability = { min = 0.5, max = 0.75 }},
+			{type = "item", name = "honeycombs-copper", amount = 50, shared_probability = { min = 0.75, max = 1 }},
+			{type = "item", name = "spoilage", amount = 30},
 		  },
 		  mining_trigger =
 		  {
@@ -157,11 +160,12 @@ data:extend(
 		name = "honey-mushroom",
 		icon = "__apia__/graphics/icons/honey-mushroom.png",
 		flags = {"placeable-neutral", "placeable-off-grid", "breaths-air"},
+		map_color = {213, 169, 101},
 		autoplace =
 		{
-		  probability_expression = "apia_biome4 * apia_biome_detail * 0.0005",
+		  probability_expression = "(apia_biome4 + apia_biome5 + apia_biome6) * apia_biome_detail * 0.0005",
 		  richness_expression = "random_penalty_at(3, 1.4)",
-		  tile_restriction = {"apia-biome4"}
+		  tile_restriction = {"apia-biome4", "apia-biome5", "apia-biome6"}
 		},
 		minable =
 		{

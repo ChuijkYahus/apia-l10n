@@ -1,4 +1,27 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.5.0
+Date: 30-09-2026
+  Major Features:
+    - Apia planet was reworked.
+  Features:
+    - Artificial hives now produce 3 types of combs: honey, iron, and copper.
+    - Fossils now process only into stone and phosphorus.
+    - Copper and iron ore can be obtained from copper and iron honeycombs.
+    - New natural soil types have been added: Honey lichen, Lichen with copper coating, and Lichen with iron coating.
+    - New artificial soils have been added: honey, copper, and iron lichen.
+    - Added a setting for the amount of fertile soil in Apia.
+    - An artificial hive can now only be placed on honey, iron, or copper lichen.
+    - The phosphorus texture has become redder.
+    - A new "tips and tricks" entry for Apia honeycombs production has been added.
+    - The iron and copper bacteria of the planet Gleba can now be refreshed.
+  Graphics:
+    - Bio solar panel icon have been retextured.
+    - Artificial hive have been retextured.
+  Balancing:
+    - Alternative recipes of carbon fiber for Apia and Carnova have been removed. Gleba would have turned out to be useless if they had stayed.
+  Bugfixes:
+    - Fixed factoriopedia links for Apia and Carnova tiles.
+---------------------------------------------------------------------------------------------------
 Version: 0.3.2
 Date: 23-09-2026
   Bugfixes:

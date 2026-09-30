@@ -16,7 +16,10 @@ planet_map_gen.apia = function()
       cliff_elevation = "cliff_elevation_from_elevation",
     },
     cliff_settings = {},
-    autoplace_controls = {},
+    autoplace_controls =
+	{
+		["apia_soil"] = { },
+	},
     autoplace_settings =
     {
       ["tile"] =
@@ -27,6 +30,8 @@ planet_map_gen.apia = function()
 			["apia-biome2"] = {},
 			["apia-biome3"] = {},
 			["apia-biome4"] = {},
+			["apia-biome5"] = {},
+			["apia-biome6"] = {},
 			["royal-jelly-lake"] = {},
 			["royal-jelly-lake2"] = {},
         }
