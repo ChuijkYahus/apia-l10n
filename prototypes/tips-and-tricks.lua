@@ -1,4 +1,3 @@
-
 data:extend(
 {
 	{
@@ -6,7 +5,7 @@ data:extend(
 		name = "apia-briefing",
 		tag = "[planet=apia]",
 		category = "space-age",
-		order = "b-y",
+		order = "b-y-a",
 		trigger =
 		{
 			type = "research",
@@ -122,6 +121,85 @@ data:extend(
 				for _, pos in ipairs(larvae_positions) do
 				  game.surfaces[1].create_entity{name = "larvae", position = {pos[1], pos[2]}}
 				end
+			]]
+		}
+	},
+	{
+		type = "tips-and-tricks-item",
+		name = "apia-honeycombs",
+		tag = "[item=honeycombs]",
+		category = "space-age",
+		order = "b-y-b",
+		indent = 1,
+		trigger =
+		{
+			type = "research",
+			technology = "apiculture"
+		},
+		simulation =
+		{
+			init_update_count = 200,
+			mute_wind_sounds = false,
+			planet = "apia",
+			init =
+			[[
+			require("__core__/lualib/story")
+			game.simulation.camera_position = {0, 0}
+			game.simulation.camera_alt_info = true
+
+			-- Поле: 3 вертикальных сегмента.
+			-- Левый 9 тайлов, центральный 8, правый 10.
+			local tiles = {}
+
+			-- Левый сегмент: apia-biome5, x = -13..-5
+			for x = -13, -5 do
+				for y = -7, 7 do
+					table.insert(tiles, {position = {x, y}, name = "apia-biome5"})
+				end
+			end
+
+			-- Центральный сегмент: apia-biome4, x = -4..3
+			for x = -4, 3 do
+				for y = -7, 7 do
+					table.insert(tiles, {position = {x, y}, name = "apia-biome4"})
+				end
+			end
+
+			-- Правый сегмент: apia-biome6, x = 4..13
+			for x = 4, 13 do
+				for y = -7, 7 do
+					table.insert(tiles, {position = {x, y}, name = "apia-biome6"})
+				end
+			end
+
+			game.surfaces[1].set_tiles(tiles)
+
+			local hives = {
+				{position = {-8, 0},    recipe = "honeycombs-copper"},
+				{position = {-0.5, 0},  recipe = "honeycombs"},
+				{position = {8, 0},     recipe = "honeycombs-iron"}
+			}
+
+			for _, hive in ipairs(hives) do
+				local ok, e = pcall(function()
+					return game.surfaces[1].create_entity{
+						name = "artificial-hive",
+						position = hive.position
+					}
+				end)
+
+				if ok and e and e.valid then
+					if prototypes.recipe and prototypes.recipe[hive.recipe] then
+						pcall(function() e.set_recipe(hive.recipe) end)
+					end
+				end
+			end
+
+			pcall(function()
+				if game.player then
+					game.player.show_recipe_icons = true
+				end
+			end)
 			]]
 		}
 	},

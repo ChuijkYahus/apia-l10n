@@ -2,7 +2,7 @@ local util = require("util")
 local apia_utils = require("lib")
 
 
-
+require("__apia__.compat.refreshment-additions")
 
 for type_name, _ in pairs(defines.prototypes.item) do
   if data.raw[type_name] then

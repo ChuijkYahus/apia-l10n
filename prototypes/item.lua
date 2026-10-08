@@ -24,7 +24,10 @@ data:extend
 		inventory_move_sound = space_age_item_sounds.agriculture_inventory_move,
 		pick_sound = space_age_item_sounds.agriculture_inventory_pickup,
 		drop_sound = space_age_item_sounds.agriculture_inventory_move,
-		fuel_category = "chemical",
+		fuel_categories =
+		{
+			"chemical",
+		},
 		fuel_value = "2MJ",
 		stack_size = 100,
 		spoil_ticks = 5 * minute,
@@ -63,7 +66,37 @@ data:extend
 		name = "honeycombs",
 		icon = "__apia__/graphics/icons/honeycombs.png",
 		subgroup = "apiculture-processes",
-		order = "a-c-a[honeycombs]",
+		order = "a-c-a[honeycombs]-a",
+		inventory_move_sound = space_age_item_sounds.agriculture_inventory_move,
+		pick_sound = space_age_item_sounds.agriculture_inventory_pickup,
+		drop_sound = space_age_item_sounds.agriculture_inventory_move,
+		stack_size = 50,
+		default_import_location = "apia",
+		spoil_ticks = 60 * minute,
+		spoil_result = "spoilage",
+		weight = 1 * kg,
+	},
+	{
+		type = "item",
+		name = "honeycombs-iron",
+		icon = "__apia__/graphics/icons/honeycombs-iron.png",
+		subgroup = "apiculture-processes",
+		order = "a-c-b[honeycombs]-a",
+		inventory_move_sound = space_age_item_sounds.agriculture_inventory_move,
+		pick_sound = space_age_item_sounds.agriculture_inventory_pickup,
+		drop_sound = space_age_item_sounds.agriculture_inventory_move,
+		stack_size = 50,
+		default_import_location = "apia",
+		spoil_ticks = 60 * minute,
+		spoil_result = "spoilage",
+		weight = 1 * kg,
+	},
+	{
+		type = "item",
+		name = "honeycombs-copper",
+		icon = "__apia__/graphics/icons/honeycombs-copper.png",
+		subgroup = "apiculture-processes",
+		order = "a-c-c[honeycombs]-a",
 		inventory_move_sound = space_age_item_sounds.agriculture_inventory_move,
 		pick_sound = space_age_item_sounds.agriculture_inventory_pickup,
 		drop_sound = space_age_item_sounds.agriculture_inventory_move,
@@ -99,7 +132,10 @@ data:extend
 		drop_sound = space_age_item_sounds.agriculture_inventory_move,
 		stack_size = 100,
 		default_import_location = "apia",
-		fuel_category = "chemical",
+		fuel_categories =
+		{
+			"chemical",
+		},
 		fuel_value = "2MJ",
 		weight = 1 * kg,
 	},
@@ -171,13 +207,73 @@ data:extend
 	},
 	{
 		type = "item",
+		name = "artificial-honey-soil",
+		icon = "__apia__/graphics/icons/artificial-honey-soil.png",
+		subgroup = "terrain",
+		order = "c[landfill]-h-a-[artificial-honey-soil]",
+		inventory_move_sound = item_sounds.landfill_inventory_move,
+		pick_sound = item_sounds.landfill_inventory_pickup,
+		drop_sound = item_sounds.landfill_inventory_move,
+		stack_size = 100,
+		default_import_location = "apia",
+		weight = 10*kg,
+		place_as_tile =
+		{
+		  result = "artificial-honey-soil",
+		  condition_size = 1,
+		  condition = {layers={}},
+		  tile_condition = {"apia-biome3"}
+		}
+	},
+	{
+		type = "item",
+		name = "artificial-copper-soil",
+		icon = "__apia__/graphics/icons/artificial-copper-soil.png",
+		subgroup = "terrain",
+		order = "c[landfill]-h-b-[artificial-copper-soil]",
+		inventory_move_sound = item_sounds.landfill_inventory_move,
+		pick_sound = item_sounds.landfill_inventory_pickup,
+		drop_sound = item_sounds.landfill_inventory_move,
+		stack_size = 100,
+		default_import_location = "apia",
+		weight = 10*kg,
+		place_as_tile =
+		{
+		  result = "artificial-copper-soil",
+		  condition_size = 1,
+		  condition = {layers={}},
+		  tile_condition = {"apia-biome3"}
+		}
+	},
+	{
+		type = "item",
+		name = "artificial-iron-soil",
+		icon = "__apia__/graphics/icons/artificial-iron-soil.png",
+		subgroup = "terrain",
+		order = "c[landfill]-h-c-[artificial-iron-soil]",
+		inventory_move_sound = item_sounds.landfill_inventory_move,
+		pick_sound = item_sounds.landfill_inventory_pickup,
+		drop_sound = item_sounds.landfill_inventory_move,
+		stack_size = 100,
+		default_import_location = "apia",
+		weight = 10*kg,
+		place_as_tile =
+		{
+		  result = "artificial-iron-soil",
+		  condition_size = 1,
+		  condition = {layers={}},
+		  tile_condition = {"apia-biome3"}
+		}
+	},
+	{
+		type = "item",
 		name = "wax-platform",
 		icon = "__apia__/graphics/icons/wax-platform.png",
 		subgroup = "terrain",
 		order = "c[landfill]-g[wax-platform]",
-		inventory_move_sound = space_age_item_sounds.agriculture_inventory_move,
-		pick_sound = space_age_item_sounds.agriculture_inventory_pickup,
-		drop_sound = space_age_item_sounds.agriculture_inventory_move,
+		inventory_move_sound = item_sounds.landfill_inventory_move,
+		pick_sound = item_sounds.landfill_inventory_pickup,
+		drop_sound = item_sounds.landfill_inventory_move,
 		stack_size = 100,
 		default_import_location = "apia",
 		weight = 10*kg,
@@ -365,7 +461,10 @@ data:extend
 		spoil_ticks = 8 * minute,
 		spoil_result = "spoilage",
 		weight = 0.5 * kg,
-		fuel_category = "chemical",
+		fuel_categories =
+		{
+			"chemical",
+		},
 		fuel_value = "2MJ",
 	},
 	{

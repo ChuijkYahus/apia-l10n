@@ -15,3 +15,4 @@ Discord: https://discord.gg/7WAtZSaZz5
 - Moonlight track by **Clavier-Music**. Free licence
 - Cosmos track by **The_Mountain**. Free licence
 - Polish language by **S3BA**. Used with permission for this mod
+- Bio solar panel icon by **powerscooter**. Used with permission for this mod

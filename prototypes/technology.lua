@@ -118,6 +118,14 @@ data:extend(
         type = "unlock-recipe",
         recipe = "honeycombs-processing"
       },
+	  {
+        type = "unlock-recipe",
+        recipe = "honeycombs-copper-processing"
+      },
+	  {
+        type = "unlock-recipe",
+        recipe = "honeycombs-iron-processing"
+      },
     },
     prerequisites = {"planet-discovery-apia-carnova"},
     research_trigger =
@@ -352,6 +360,43 @@ data:extend(
   },
   {
     type = "technology",
+    name = "artificial-apia-soil",
+    icon = "__apia__/graphics/technology/artificial-apia-soil.png",
+    icon_size = 256,
+    effects =
+    {
+      {
+        type = "unlock-recipe",
+        recipe = "artificial-honey-soil",
+      },
+	  {
+        type = "unlock-recipe",
+        recipe = "artificial-copper-soil",
+      },
+	  {
+        type = "unlock-recipe",
+        recipe = "artificial-iron-soil",
+      },
+    },
+    prerequisites = {"apicultural-science-pack"},
+    unit =
+    {
+      count = 500,
+      ingredients =
+      {
+        {"automation-science-pack", 1},
+        {"logistic-science-pack", 1},
+        {"chemical-science-pack", 1},
+		{"production-science-pack", 1},
+        {"utility-science-pack", 1},
+        {"space-science-pack", 1},
+        {"apicultural-science-pack", 1},
+      },
+      time = 60
+    },
+  },
+  {
+    type = "technology",
     name = "bones-processing",
     icon = "__apia__/graphics/technology/bones-processing.png",
     icon_size = 128,
@@ -534,46 +579,6 @@ data:extend(
   },
   {
     type = "technology",
-    name = "carbon-fiber-apia",
-    icon = "__apia__/graphics/technology/carbon-fiber-apia.png",
-    icon_size = 128,
-    effects =
-    {
-	  {
-        type = "unlock-recipe",
-        recipe = "carbon-fiber-apia"
-      },
-    },
-    prerequisites = {"wax-processing", "honey-processing", "carbon-fiber"},
-	research_trigger =
-	{
-      type = "craft-item",
-      item = "polysaccharides",
-      count = 100
-    }
-  },
-  {
-    type = "technology",
-    name = "carbon-fiber-carnova",
-    icon = "__apia__/graphics/technology/carbon-fiber-carnova.png",
-    icon_size = 128,
-    effects =
-    {
-	  {
-        type = "unlock-recipe",
-        recipe = "carbon-fiber-carnova"
-      },
-    },
-    prerequisites = {"flesh-separation", "carbon-fiber"},
-	research_trigger =
-	{
-      type = "craft-item",
-      item = "lipids",
-      count = 100
-    }
-  },
-  {
-    type = "technology",
     name = "carbon-fiber-productivity",
     icons = util.technology_icon_constant_productivity("__apia__/graphics/technology/carbon-fiber-productivity.png"),
     PlanetsLib_recipe_productivity_effects = 
@@ -651,6 +656,16 @@ data:extend(
       {
         type = "change-recipe-productivity",
         recipe = "honeycombs-processing",
+        change = 0.1
+      },
+	  {
+        type = "change-recipe-productivity",
+        recipe = "honeycombs-iron-processing",
+        change = 0.1
+      },
+	  {
+        type = "change-recipe-productivity",
+        recipe = "honeycombs-copper-processing",
         change = 0.1
       },
     },
