@@ -65,6 +65,9 @@ function apia_utils.generate_refresh_recipe(item)
 		{
 			"refresh",
 		},
+		
+		hide_from_stats = true,
+		
 		subgroup = "refresh",
 		order = item.order,
 		hidden = false,
