@@ -1,4 +1,11 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.5.1
+Date: 12-10-2026
+  Compatibility:
+    - The dependency entry for the orbital-cannon mod has been removed, but it remains compatible.
+  Bugfixes:
+    - Refreshment recipes are no longer reflected in production statistics.
+---------------------------------------------------------------------------------------------------
 Version: 0.5.0
 Date: 30-09-2026
   Major Features:
